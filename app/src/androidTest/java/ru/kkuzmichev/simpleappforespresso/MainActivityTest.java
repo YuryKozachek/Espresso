@@ -32,23 +32,15 @@ import org.junit.runner.RunWith;
 @LargeTest
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
-    String iCantUnderstandWhereThisTextComesFrom = "Open navigation drawer";
+    String textPage = "This is home fragment";
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
     public void mainActivityTest() {
-        ViewInteraction appCompatImageButton = onView(withContentDescription(iCantUnderstandWhereThisTextComesFrom));
-        appCompatImageButton.check(matches(isDisplayed()));
-        appCompatImageButton.perform(click());
-
-        ViewInteraction navigationMenuItemView = onView(withId(R.id.nav_home));
-        navigationMenuItemView.check(matches(isDisplayed()));
-        navigationMenuItemView.perform(click());
-
         ViewInteraction textView = onView(withId(R.id.text_home));
         textView.check(matches(isDisplayed()));
-        textView.check(matches(withId(R.id.text_home)));
+        textView.check(matches(withText(textPage)));
     }
 }
