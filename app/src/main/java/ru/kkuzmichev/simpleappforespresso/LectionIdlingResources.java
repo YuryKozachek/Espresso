@@ -6,12 +6,12 @@ public class LectionIdlingResources {
     private static final String RESOURCE = "GLOBAL";
     public static CountingIdlingResource idlingResource = new CountingIdlingResource(RESOURCE);
 
-    public static void increment(){
+    public static void increment() {
         idlingResource.increment();
     }
 
-    public static void decrement(){
-        if(!idlingResource.isIdleNow()){
+    public static void decrement() {
+        if (!idlingResource.isIdleNow()) {
             idlingResource.decrement();
         }
     }

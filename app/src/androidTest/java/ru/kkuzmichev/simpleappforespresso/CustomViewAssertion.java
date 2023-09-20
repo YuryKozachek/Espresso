@@ -7,15 +7,14 @@ import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.espresso.ViewAssertion;
 
 public class CustomViewAssertion {
-    public static ViewAssertion isRecyclerView(){
-        return new ViewAssertion(){
+    public static ViewAssertion isRecyclerView() {
+        return new ViewAssertion() {
 
             @Override
-            public  void check(View view, NoMatchingViewException noViewFoundException){
+            public void check(View view, NoMatchingViewException noViewFoundException) {
                 try {
                     RecyclerView recyclerView = (RecyclerView) view;
-                }
-                catch (ClassCastException e){
+                } catch (ClassCastException e) {
                     throw new IllegalStateException("This is not a RecyclerView");
                 }
             }
